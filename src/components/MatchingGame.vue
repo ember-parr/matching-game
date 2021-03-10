@@ -6,6 +6,9 @@
         <game-cards
           :card="card"
           :image="require(`../assets/cards/${card.image}`)"
+          :guessOne="guessOne"
+          :guessTwo="guessTwo"
+          @card-clicked="handleCardClick"
         />
       </div>
     </div>
@@ -24,6 +27,42 @@ export default {
       guessOne: null,
       guessTwo: null
     };
+  },
+  methods: {
+    handleCardClick(card) {
+      // don't do anything if a third card is clicked
+      if (this.guessOne && this.guessTwo) return;
+
+      // if the same card is clicked 2x, dont do anything
+      if (this.guessOne === card) return;
+
+      // assign first guess
+      if (this.guessOne === null) {
+        this.guessOne = card;
+        return;
+      }
+
+      if (this.guessTwo === null) {
+        this.guessTwo = card;
+      }
+
+      const [cardOne, cardTwo] = this.getMatchingCards(card.name);
+
+      if (this.guessOne.name === this.guessTwo.name) {
+        cardOne.foundMatch = true;
+        cardTwo.foundMatch = true;
+        this.guessOne = null;
+        this.guessTwo = null;
+      } else {
+        setTimeout(() => {
+          this.guessOne = null;
+          this.guessTwo = null;
+        }, 2000);
+      }
+    },
+    getMatchingCards(name) {
+      return this.languages.filter(l => l.name === name);
+    }
   }
 };
 </script>
