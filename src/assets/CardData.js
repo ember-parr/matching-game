@@ -39,13 +39,13 @@ export const CardData = [
     id: 7,
     name: "Java",
     image: "java.png",
-    foundMatch: true
+    foundMatch: false
   },
   {
     id: 8,
     name: "Java",
     image: "java.png",
-    foundMatch: true
+    foundMatch: false
   },
   {
     id: 9,
