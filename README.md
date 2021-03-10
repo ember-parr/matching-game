@@ -1,5 +1,6 @@
 # matching-game
-
+deployed using firebase
+[view live demo](https://emberparr-matching-game.web.app/)
 ## Project setup
 ```
 npm install
