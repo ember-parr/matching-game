@@ -1,6 +1,13 @@
 <template>
-  <div>
-    <h4>{{ card.name }}</h4>
+  <div @click="open = !open">
+    <transition name="fade">
+      <span v-if="open" class="languageImage">
+        <img :src="image" alt="playing card" />
+      </span>
+      <span v-if="!open" class="languageImage">
+        <img src="../assets/matching-cardBack.jpg" alt="playing card" />
+      </span>
+    </transition>
   </div>
 </template>
 
@@ -8,9 +15,19 @@
 export default {
   props: ["card", "image"],
   data() {
-    return {};
+    return {
+      open: false
+    };
   }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+img {
+    max-width: 100%;
+}
+</style>

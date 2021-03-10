@@ -30,9 +30,13 @@ export default {
 
 <style scoped>
 .matchingGame {
-  border: 2px solid green;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .singleCard {
-  border: 2px solid blue;
+  margin: 20px;
+  width: 20%;
+  min-height: 100px;
 }
 </style>
