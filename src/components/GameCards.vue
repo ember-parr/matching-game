@@ -1,11 +1,15 @@
 <template>
-  <div @click="open = !open">
+  <div>
     <transition name="fade">
       <span v-if="open || card.foundMatch === true" class="languageImage">
         <img :src="image" alt="playing card" />
       </span>
       <span v-if="!open" class="languageImage">
-        <img src="../assets/matching-cardBack.jpg" alt="playing card" />
+        <img
+          src="../assets/matching-cardBack.jpg"
+          alt="playing card"
+          @click="open = !open"
+        />
       </span>
     </transition>
   </div>
