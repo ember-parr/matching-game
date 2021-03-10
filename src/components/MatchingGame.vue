@@ -6,6 +6,8 @@
         <game-cards
           :card="card"
           :image="require(`../assets/cards/${card.image}`)"
+          :guessOne="guessOne"
+          :guessTwo="guessTwo"
         />
       </div>
     </div>
